@@ -1,26 +1,33 @@
 import "./App.css";
-import backgroundImage from "./assets/doomsday-background.png";
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Welcome from "./Components/Welcome";
 
 function App() {
+  const [isim, setIsim] = useState("");
+  const [giris, setGiris] = useState(false);
+
+  function isimAl(e) {
+    setIsim(e.target.value);
+    console.log(isim);
+  }
+
+  function handleGiris() {
+    if (isim.trim() !== "") {
+      setGiris(true);
+    } else {
+      toast.error("Lütfen geçerli bir isim girin.");
+    }
+  }
   return (
     <div className="app-container">
-      <header>
-        <h1 className="title">DOOMSDAY </h1>
-        <h3 className="subtitle">The Choice Is Yours</h3>
-      </header>
-
-      <main>
-        <p className="greeting">
-          Welcome!
-          <span> Hoş Geldiniz, isminizi alabilir miyim?</span>
-        </p>
-        <input className="input" type="text" placeholder="İsminizi girin..." />
-        <button className="button">Devam Et</button>
-      </main>
-
-      <footer>
-        <p>LATVERIA DOOMSDAY PROJECT</p>
-      </footer>
+      <ToastContainer />
+      {giris === false ? (
+        <Welcome isim={isim} isimAl={isimAl} handleGiris={handleGiris} />
+      ) : (
+        <div className="character-container"></div>
+      )}
     </div>
   );
 }
