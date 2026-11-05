@@ -1,5 +1,5 @@
 import "./Welcome.css";
-function Welcome({ isim, isimAl, handleGiris }) {
+function Welcome({ isim, isimAl, isimKontrol }) {
   return (
     <div className="welcome-container">
       <header>
@@ -20,7 +20,7 @@ function Welcome({ isim, isimAl, handleGiris }) {
           onChange={isimAl}
         />
 
-        <button className="button" onClick={handleGiris}>
+        <button className="button" onClick={isimKontrol}>
           Devam Et
         </button>
       </main>

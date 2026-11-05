@@ -13,7 +13,7 @@ function App() {
     console.log(isim);
   }
 
-  function handleGiris() {
+  function isimKontrol() {
     if (isim.trim() !== "") {
       setGiris(true);
     } else {
@@ -24,7 +24,7 @@ function App() {
     <div className="app-container">
       <ToastContainer />
       {giris === false ? (
-        <Welcome isim={isim} isimAl={isimAl} handleGiris={handleGiris} />
+        <Welcome isim={isim} isimAl={isimAl} isimKontrol={isimKontrol} />
       ) : (
         <div className="character-container"></div>
       )}
