@@ -1,0 +1,38 @@
+.karakter-kart {
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  background-color: #10251f;
+  border: 1px solid #858585;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(180, 180, 180, 0.18);
+  transition: 0.3s;
+}
+
+.karakter-kart:hover {
+  transform: scale(1.02);
+  border-color: #d4af37;
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
+}
+
+.karakter-kart img {
+  display: block;
+  width: 160px;
+  height: 200px;
+  object-fit: contain;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.karakter-kart h2 {
+  color: #f5dfa0;
+  font-size: 18px;
+  margin: 8px 0;
+}
+
+.karakter-kart p {
+  color: #d4af37;
+  font-size: 16px;
+  margin: 5px 0;
+}

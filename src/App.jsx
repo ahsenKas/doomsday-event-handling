@@ -3,6 +3,8 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Welcome from "./Components/Welcome";
+import KarakterListesi from "./Components/KarakterListesi";
+import CharacterSelection from "./Components/CharacterSelection";
 
 function App() {
   const [isim, setIsim] = useState("");
@@ -26,7 +28,10 @@ function App() {
       {giris === false ? (
         <Welcome isim={isim} isimAl={isimAl} isimKontrol={isimKontrol} />
       ) : (
-        <div className="character-container"></div>
+        <div className="character-container">
+          <CharacterSelection isim={isim} />
+          <KarakterListesi />
+        </div>
       )}
     </div>
   );

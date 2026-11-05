@@ -1,0 +1,22 @@
+.character-selection {
+  width: 100%;
+  text-align: center;
+  padding: 10px 20px 35px;
+}
+
+.character-selection h1 {
+  color: #ffd447;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(255, 212, 71, 0.25);
+}
+
+.character-selection p {
+  color: #f5dfa0;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: 1px;
+}
