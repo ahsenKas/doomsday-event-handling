@@ -9,6 +9,20 @@ import professorX from "../assets/professorX.jpg";
 import gambit from "../assets/gambit.jpeg";
 
 function KarakterListesi() {
+  function begen(karakterId) {
+    const yeniKarakterler = karakterler.map((karakter) => {
+      if (karakter.id === karakterId) {
+        return {
+          ...karakter,
+          likeCount: karakter.likeCount + 1,
+        };
+      } else {
+        return karakter;
+      }
+    });
+
+    setKarakterler(yeniKarakterler);
+  }
   const [karakterler, setKarakterler] = useState([
     { id: 1, name: "Thor", image: thor, likeCount: 0 },
     { id: 2, name: "Victor von Doom", image: doom, likeCount: 0 },
@@ -21,7 +35,7 @@ function KarakterListesi() {
   return (
     <div className="karakter-listesi">
       {karakterler.map((karakter) => (
-        <Karakterler key={karakter.id} karakterim={karakter} />
+        <Karakterler key={karakter.id} karakterim={karakter} begen={begen} />
       ))}
     </div>
   );

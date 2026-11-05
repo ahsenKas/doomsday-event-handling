@@ -3,7 +3,6 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Welcome from "./Components/Welcome";
-import KarakterListesi from "./Components/KarakterListesi";
 import CharacterSelection from "./Components/CharacterSelection";
 
 function App() {
@@ -30,7 +29,6 @@ function App() {
       ) : (
         <div className="character-container">
           <CharacterSelection isim={isim} />
-          <KarakterListesi />
         </div>
       )}
     </div>
