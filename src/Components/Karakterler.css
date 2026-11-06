@@ -1,9 +1,9 @@
-/* Karakter kartı */
+/* Karakter kartları */
 
 .karakter-kart {
   width: 100%;
+  min-width: 0;
   padding: 12px;
-  box-sizing: border-box;
   background-color: #174a36;
   border: 1px solid #858585;
   border-radius: 15px;
@@ -12,20 +12,20 @@
   transition: 0.3s;
 }
 
-/* Mouse üzerine geldiğinde */
+/* Mouse üzerine gelince */
 
 .karakter-kart:hover {
   transform: scale(1.02);
   border-color: #d4bd7a;
-  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.35);
+  box-shadow: 0 0 12px rgba(212, 189, 122, 0.6);
 }
 
 /* Karakter görselleri */
 
 .karakter-kart img {
   display: block;
-  width: 180px;
-  height: 225px;
+  width: 100%;
+  height: 200px;
   object-fit: contain;
   margin: 0 auto;
   border-radius: 10px;
@@ -43,11 +43,11 @@
 
 .karakter-kart p {
   color: #d4bd7a;
-  font-size: 16px;
+  font-size: 14px;
   margin: 5px 0;
 }
 
-/* Beğeni butonu */
+/* Kalp butonu */
 
 .like-button {
   background: none;
@@ -60,11 +60,15 @@
   transition: 0.3s;
 }
 
+.like-button:hover {
+  transform: scale(1.15);
+}
+
 .like-button.liked {
   color: #d4bd7a;
 }
 
-/* İlk tema: Canlı yeşil */
+/* Canlı yeşil temadaki kartlar */
 
 .tema-light .karakter-kart {
   background-color: #267a3b;
@@ -80,7 +84,7 @@
   color: #d4bd7a;
 }
 
-/* İkinci tema: Koyu yeşil */
+/* Koyu yeşil temadaki kartlar */
 
 .tema-dark .karakter-kart {
   background-color: #174a36;
@@ -95,33 +99,56 @@
 .tema-dark .karakter-kart p {
   color: #d4bd7a;
 }
-/* Telefonlarda karakter kartları */
 
-@media (max-width: 600px) {
+/* Telefon ekranları */
+
+@media (max-width: 768px) {
   .karakter-kart {
-    width: 100%;
-    min-width: 0;
-    padding: 8px;
-    box-sizing: border-box;
+    padding: 6px;
+    border-radius: 10px;
   }
 
   .karakter-kart img {
+    height: 100px;
     width: 100%;
-    height: 125px;
-    object-fit: contain;
   }
 
   .karakter-kart h2 {
-    font-size: 14px;
-    margin: 6px 0;
+    font-size: 11px;
+    margin: 5px 0;
   }
 
   .karakter-kart p {
-    font-size: 12px;
+    font-size: 9px;
+    margin: 3px 0;
   }
 
   .like-button {
-    font-size: 26px;
-    margin: 3px;
+    font-size: 23px;
+    margin: 2px;
+  }
+}
+
+/* Küçük telefonlar */
+
+@media (max-width: 380px) {
+  .karakter-kart {
+    padding: 4px;
+  }
+
+  .karakter-kart img {
+    height: 80px;
+  }
+
+  .karakter-kart h2 {
+    font-size: 9px;
+  }
+
+  .karakter-kart p {
+    font-size: 8px;
+  }
+
+  .like-button {
+    font-size: 20px;
   }
 }

@@ -1,11 +1,29 @@
+/* Genel sayfa ayarları */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 /* Ana karakter sayfası */
 
 .karakter-sayfasi {
   width: 100%;
   min-height: 100vh;
-  box-sizing: border-box;
+  min-height: 100dvh;
   text-align: center;
-  padding: 10px 25px 25px;
+  padding: 10px 20px 20px;
 }
 
 /* Başlık alanı */
@@ -16,14 +34,12 @@
   padding: 10px 0 20px;
 }
 
-/* Başlıkların ortalanması */
-
 .baslik-metni {
   width: 100%;
   text-align: center;
 }
 
-/* Hoş geldin başlığı */
+/* Hoş geldin */
 
 .baslik-metni h1 {
   font-size: 48px;
@@ -40,7 +56,7 @@
   margin: 0;
 }
 
-/* Tema değiştirme butonu */
+/* Tema butonu */
 
 .theme-button {
   position: absolute;
@@ -60,7 +76,7 @@
   background-color: #f5dfa0;
 }
 
-/* İlk tema: Canlı yeşil */
+/* Canlı yeşil tema */
 
 .tema-light {
   background-color: #3ecd53;
@@ -74,7 +90,7 @@
   color: #124a2a;
 }
 
-/* İkinci tema: Koyu yeşil */
+/* Koyu yeşil tema */
 
 .tema-dark {
   background-color: #062b20;
@@ -94,68 +110,70 @@
   border: 1px solid #d4bd7a;
 }
 
-/* Karakter kartlarının yerleşimi */
+/* Karakterlerin yerleşimi */
 
 .karakter-listesi {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 25px 35px;
+  gap: 25px 30px;
   width: 94%;
   max-width: 1450px;
   margin: 0 auto;
   padding: 10px 0 20px;
-  box-sizing: border-box;
 }
 
-/* Tablet */
+/* Tablet ve telefon */
 
 @media (max-width: 768px) {
-  .karakter-listesi {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .baslik-metni h1 {
-    font-size: 36px;
-  }
-
-  .baslik-metni h2 {
-    font-size: 20px;
-  }
-}
-
-/* Telefon */
-/* Telefon ekranları */
-
-@media (max-width: 600px) {
   .karakter-sayfasi {
     padding: 8px 10px;
-    width: 100%;
   }
 
   .baslik-alani {
-    padding: 35px 0 15px;
+    padding: 8px 0 12px;
   }
 
   .baslik-metni h1 {
-    font-size: 26px;
+    font-size: 30px;
     letter-spacing: 1px;
   }
 
   .baslik-metni h2 {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .theme-button {
-    top: 0;
-    right: 0;
+    top: 8px;
+    right: 5px;
     padding: 5px 9px;
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .karakter-listesi {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
     gap: 12px;
-    padding: 5px 0 15px;
+    padding: 5px 0 10px;
+  }
+}
+
+/* Küçük telefonlar */
+
+@media (max-width: 380px) {
+  .baslik-metni h1 {
+    font-size: 21px;
+  }
+
+  .baslik-metni h2 {
+    font-size: 12px;
+  }
+
+  .theme-button {
+    font-size: 9px;
+    padding: 4px 7px;
+  }
+
+  .karakter-listesi {
+    gap: 8px;
   }
 }
