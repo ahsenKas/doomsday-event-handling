@@ -1,0 +1,74 @@
+.character-selection {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
+}
+
+/* Başlık */
+
+.character-selection h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+  margin: 0 0 8px;
+  letter-spacing: 2px;
+}
+
+/* Alt başlık */
+
+.character-selection h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Canlı yeşil tema */
+
+.tema-light {
+  background-color: #3ecd53;
+}
+
+.tema-light h1 {
+  color: #083b1b;
+  text-shadow: none;
+}
+
+.tema-light h2 {
+  color: #124a2a;
+}
+
+/* Koyu yeşil tema */
+
+.tema-dark {
+  background-color: #062b20;
+}
+
+.tema-dark h1 {
+  color: #ffd447;
+  text-shadow: 0 0 15px rgba(255, 212, 71, 0.25);
+}
+
+.tema-dark h2 {
+  color: #f5dfa0;
+}
+
+/* Tema butonu */
+
+.theme-button {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 10px;
+  padding: 7px 14px;
+  background-color: #124a2a;
+  color: #f5dfa0;
+  border: 1px solid #d4bd7a;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.theme-button:hover {
+  background-color: #083b1b;
+}

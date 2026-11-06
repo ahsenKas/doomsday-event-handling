@@ -1,4 +1,4 @@
-import Karakterler from "./Karakterler";
+import Karakterler from "./Karakterler-temp";
 import { useState } from "react";
 import "./KarakterListesi.css";
 
