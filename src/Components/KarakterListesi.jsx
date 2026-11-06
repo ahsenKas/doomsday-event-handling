@@ -1,7 +1,6 @@
-import Karakterler from "./Karakterler-temp";
+import Karakterler from "./Karakterlerim";
 import { useState } from "react";
 import "./KarakterListesi.css";
-
 import thor from "../assets/thor.jpg";
 import doom from "../assets/doom.jpg";
 import loki from "../assets/loki.jpg";
