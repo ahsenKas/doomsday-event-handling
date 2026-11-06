@@ -2,18 +2,20 @@ import "./App.css";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 import Welcome from "./Components/Welcome";
-import CharacterSelection from "./Components/CharacterSelection";
+import KarakterListesi from "./Components/KarakterListesi";
 
 function App() {
   const [isim, setIsim] = useState("");
   const [giris, setGiris] = useState(false);
 
+  // Input içerisindeki ismi alır.
   function isimAl(e) {
     setIsim(e.target.value);
-    console.log(isim);
   }
 
+  // İsim boş değilse karakter sayfasına geçer.
   function isimKontrol() {
     if (isim.trim() !== "") {
       setGiris(true);
@@ -21,17 +23,19 @@ function App() {
       toast.error("Lütfen geçerli bir isim girin.");
     }
   }
+
   return (
-    <div className="app-container">
+    <>
       <ToastContainer />
+
       {giris === false ? (
-        <Welcome isim={isim} isimAl={isimAl} isimKontrol={isimKontrol} />
-      ) : (
-        <div className="character-container">
-          <CharacterSelection isim={isim} />
+        <div className="app-container">
+          <Welcome isim={isim} isimAl={isimAl} isimKontrol={isimKontrol} />
         </div>
+      ) : (
+        <KarakterListesi isim={isim} />
       )}
-    </div>
+    </>
   );
 }
 

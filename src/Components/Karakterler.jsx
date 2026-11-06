@@ -12,7 +12,7 @@ function Karakterler({ karakterim, begen }) {
       >
         ♥
       </button>
-      <p>{karakterim.likeCount} like</p>
+      <p>Beğeni sayısı: {karakterim.likeCount}</p>
     </div>
   );
 }

@@ -1,21 +1,145 @@
+/* Ana karakter sayfası */
+
+.karakter-sayfasi {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 10px 25px 25px;
+}
+
+/* Başlık alanı */
+
+.baslik-alani {
+  position: relative;
+  width: 100%;
+  padding: 10px 0 20px;
+}
+
+/* Başlıkların ortalanması */
+
+.baslik-metni {
+  width: 100%;
+  text-align: center;
+}
+
+/* Hoş geldin başlığı */
+
+.baslik-metni h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin: 0 0 8px;
+  letter-spacing: 2px;
+}
+
+/* Favori karakter başlığı */
+
+.baslik-metni h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0;
+}
+
+/* Tema değiştirme butonu */
+
+.theme-button {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  padding: 7px 13px;
+  background-color: #d4bd7a;
+  color: #062b20;
+  border: none;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-button:hover {
+  background-color: #f5dfa0;
+}
+
+/* İlk tema: Canlı yeşil */
+
+.tema-light {
+  background-color: #3ecd53;
+}
+
+.tema-light .baslik-metni h1 {
+  color: #083b1b;
+}
+
+.tema-light .baslik-metni h2 {
+  color: #124a2a;
+}
+
+/* İkinci tema: Koyu yeşil */
+
+.tema-dark {
+  background-color: #062b20;
+}
+
+.tema-dark .baslik-metni h1 {
+  color: #ffd447;
+}
+
+.tema-dark .baslik-metni h2 {
+  color: #f5dfa0;
+}
+
+.tema-dark .theme-button {
+  background-color: #174a36;
+  color: #f5dfa0;
+  border: 1px solid #d4bd7a;
+}
+
+/* Karakter kartlarının yerleşimi */
+
 .karakter-listesi {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 25px 30px;
-  width: 90%;
-  max-width: 1100px;
+  gap: 25px 35px;
+  width: 94%;
+  max-width: 1450px;
   margin: 0 auto;
   padding: 10px 0 20px;
+  box-sizing: border-box;
 }
+
+/* Tablet */
 
 @media (max-width: 768px) {
   .karakter-listesi {
     grid-template-columns: 1fr 1fr;
   }
+
+  .baslik-metni h1 {
+    font-size: 36px;
+  }
+
+  .baslik-metni h2 {
+    font-size: 20px;
+  }
 }
+
+/* Telefon */
 
 @media (max-width: 480px) {
   .karakter-listesi {
     grid-template-columns: 1fr;
+  }
+
+  .baslik-metni h1 {
+    font-size: 28px;
+  }
+
+  .baslik-metni h2 {
+    font-size: 18px;
+  }
+
+  .theme-button {
+    position: static;
+    margin-bottom: 15px;
   }
 }
