@@ -95,3 +95,33 @@
 .tema-dark .karakter-kart p {
   color: #d4bd7a;
 }
+/* Telefonlarda karakter kartları */
+
+@media (max-width: 600px) {
+  .karakter-kart {
+    width: 100%;
+    min-width: 0;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+
+  .karakter-kart img {
+    width: 100%;
+    height: 125px;
+    object-fit: contain;
+  }
+
+  .karakter-kart h2 {
+    font-size: 14px;
+    margin: 6px 0;
+  }
+
+  .karakter-kart p {
+    font-size: 12px;
+  }
+
+  .like-button {
+    font-size: 26px;
+    margin: 3px;
+  }
+}

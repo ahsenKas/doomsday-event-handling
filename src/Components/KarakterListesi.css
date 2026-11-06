@@ -124,22 +124,38 @@
 }
 
 /* Telefon */
+/* Telefon ekranları */
 
-@media (max-width: 480px) {
-  .karakter-listesi {
-    grid-template-columns: 1fr;
+@media (max-width: 600px) {
+  .karakter-sayfasi {
+    padding: 8px 10px;
+    width: 100%;
+  }
+
+  .baslik-alani {
+    padding: 35px 0 15px;
   }
 
   .baslik-metni h1 {
-    font-size: 28px;
+    font-size: 26px;
+    letter-spacing: 1px;
   }
 
   .baslik-metni h2 {
-    font-size: 18px;
+    font-size: 15px;
   }
 
   .theme-button {
-    position: static;
-    margin-bottom: 15px;
+    top: 0;
+    right: 0;
+    padding: 5px 9px;
+    font-size: 11px;
+  }
+
+  .karakter-listesi {
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 12px;
+    padding: 5px 0 15px;
   }
 }
