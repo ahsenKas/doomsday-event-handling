@@ -10,7 +10,6 @@ function Welcome({ isim, isimAl, isimKontrol }) {
 
       <main>
         <p className="greeting">
-          Welcome!
           <span>Hoş Geldiniz, isminizi alabilir miyim?</span>
         </p>
 
