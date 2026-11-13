@@ -1,4 +1,4 @@
-import Karakterler from "./Karakterlerim";
+import Karakterler from "./Karakterler";
 import { useState } from "react";
 import "./KarakterListesi.css";
 import thor from "../assets/thor.jpg";
@@ -12,23 +12,45 @@ function KarakterListesi({ isim }) {
   // Tema bilgisi
   const [tema, setTema] = useState("light");
 
-  // Karakterlerin bilgileri ve beğeni sayıları
-  const [karakterler, setKarakterler] = useState([
-    { id: 1, name: "Thor", image: thor, likeCount: 0 },
-    { id: 2, name: "Victor von Doom", image: doom, likeCount: 0 },
-    { id: 3, name: "Loki", image: loki, likeCount: 0 },
-    { id: 4, name: "Steve Rogers", image: steveRogers, likeCount: 0 },
-    { id: 5, name: "Professor X", image: professorX, likeCount: 0 },
-    { id: 6, name: "Gambit", image: gambit, likeCount: 0 },
-  ]);
+  // Karakterlerin bilgilerini ve kayıtlı beğenilerini yükler.
+  const [karakterler, setKarakterler] = useState(() => {
+    const ilkKarakterler = [
+      { id: 1, name: "Thor", image: thor },
+      { id: 2, name: "Victor von Doom", image: doom },
+      { id: 3, name: "Loki", image: loki },
+      { id: 4, name: "Steve Rogers", image: steveRogers },
+      { id: 5, name: "Professor X", image: professorX },
+      { id: 6, name: "Gambit", image: gambit },
+    ];
 
-  // Seçilen karakterin beğeni sayısını artırır.
+    try {
+      const kayitliBegeniler = JSON.parse(
+        localStorage.getItem("doomsdayBegenileri") || "[]",
+      );
+
+      return ilkKarakterler.map((karakter) => ({
+        ...karakter,
+        likeCount:
+          Array.isArray(kayitliBegeniler) &&
+          kayitliBegeniler.includes(karakter.id)
+            ? 1
+            : 0,
+      }));
+    } catch {
+      return ilkKarakterler.map((karakter) => ({
+        ...karakter,
+        likeCount: 0,
+      }));
+    }
+  });
+
+  // Beğeniyi açar veya geri alır.
   function begen(karakterId) {
     const yeniKarakterler = karakterler.map((karakter) => {
       if (karakter.id === karakterId) {
         return {
           ...karakter,
-          likeCount: karakter.likeCount + 1,
+          likeCount: karakter.likeCount === 0 ? 1 : 0,
         };
       } else {
         return karakter;
@@ -36,6 +58,14 @@ function KarakterListesi({ isim }) {
     });
 
     setKarakterler(yeniKarakterler);
+
+    // Beğenilen karakterlerin ID değerlerini bulur.
+    const begenilenler = yeniKarakterler
+      .filter((karakter) => karakter.likeCount === 1)
+      .map((karakter) => karakter.id);
+
+    // Beğenileri tarayıcıya kaydeder.
+    localStorage.setItem("doomsdayBegenileri", JSON.stringify(begenilenler));
   }
 
   return (
