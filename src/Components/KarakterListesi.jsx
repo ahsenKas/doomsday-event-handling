@@ -1,6 +1,7 @@
 import Karakterler from "./Karakterler";
 import { useState } from "react";
 import "./KarakterListesi.css";
+
 import thor from "../assets/thor.jpg";
 import doom from "../assets/doom.jpg";
 import loki from "../assets/loki.jpg";
@@ -9,42 +10,54 @@ import professorX from "../assets/professorX.jpg";
 import gambit from "../assets/gambit.jpeg";
 
 function KarakterListesi({ isim }) {
-  // Tema bilgisi
+  // Her kullanıcının kendisine ait kayıt anahtarı
+  const kullaniciAnahtari = `doomsdayBegenileri_${isim.trim().toLocaleLowerCase("tr-TR")}`;
+
+  // Daha önce kaydedilmiş beğenileri al
+  const kayitliBegeniler =
+    JSON.parse(localStorage.getItem(kullaniciAnahtari)) || [];
+
   const [tema, setTema] = useState("light");
 
-  // Karakterlerin bilgilerini ve kayıtlı beğenilerini yükler.
-  const [karakterler, setKarakterler] = useState(() => {
-    const ilkKarakterler = [
-      { id: 1, name: "Thor", image: thor },
-      { id: 2, name: "Victor von Doom", image: doom },
-      { id: 3, name: "Loki", image: loki },
-      { id: 4, name: "Steve Rogers", image: steveRogers },
-      { id: 5, name: "Professor X", image: professorX },
-      { id: 6, name: "Gambit", image: gambit },
-    ];
+  const [karakterler, setKarakterler] = useState([
+    {
+      id: 1,
+      name: "Thor",
+      image: thor,
+      likeCount: kayitliBegeniler.includes(1) ? 1 : 0,
+    },
+    {
+      id: 2,
+      name: "Victor von Doom",
+      image: doom,
+      likeCount: kayitliBegeniler.includes(2) ? 1 : 0,
+    },
+    {
+      id: 3,
+      name: "Loki",
+      image: loki,
+      likeCount: kayitliBegeniler.includes(3) ? 1 : 0,
+    },
+    {
+      id: 4,
+      name: "Steve Rogers",
+      image: steveRogers,
+      likeCount: kayitliBegeniler.includes(4) ? 1 : 0,
+    },
+    {
+      id: 5,
+      name: "Professor X",
+      image: professorX,
+      likeCount: kayitliBegeniler.includes(5) ? 1 : 0,
+    },
+    {
+      id: 6,
+      name: "Gambit",
+      image: gambit,
+      likeCount: kayitliBegeniler.includes(6) ? 1 : 0,
+    },
+  ]);
 
-    try {
-      const kayitliBegeniler = JSON.parse(
-        localStorage.getItem("doomsdayBegenileri") || "[]",
-      );
-
-      return ilkKarakterler.map((karakter) => ({
-        ...karakter,
-        likeCount:
-          Array.isArray(kayitliBegeniler) &&
-          kayitliBegeniler.includes(karakter.id)
-            ? 1
-            : 0,
-      }));
-    } catch {
-      return ilkKarakterler.map((karakter) => ({
-        ...karakter,
-        likeCount: 0,
-      }));
-    }
-  });
-
-  // Beğeniyi açar veya geri alır.
   function begen(karakterId) {
     const yeniKarakterler = karakterler.map((karakter) => {
       if (karakter.id === karakterId) {
@@ -52,20 +65,20 @@ function KarakterListesi({ isim }) {
           ...karakter,
           likeCount: karakter.likeCount === 0 ? 1 : 0,
         };
-      } else {
-        return karakter;
       }
+
+      return karakter;
     });
 
     setKarakterler(yeniKarakterler);
 
-    // Beğenilen karakterlerin ID değerlerini bulur.
+    // Beğenilmiş karakterleri bul
     const begenilenler = yeniKarakterler
       .filter((karakter) => karakter.likeCount === 1)
       .map((karakter) => karakter.id);
 
-    // Beğenileri tarayıcıya kaydeder.
-    localStorage.setItem("doomsdayBegenileri", JSON.stringify(begenilenler));
+    // Beğenileri kullanıcının adına göre kaydet
+    localStorage.setItem(kullaniciAnahtari, JSON.stringify(begenilenler));
   }
 
   return (
@@ -76,7 +89,6 @@ function KarakterListesi({ isim }) {
           : "karakter-sayfasi tema-dark"
       }
     >
-      {/* Başlıklar ve tema butonu */}
       <div className="baslik-alani">
         <div className="baslik-metni">
           <h1>Hoş geldin, {isim}!</h1>
@@ -91,7 +103,6 @@ function KarakterListesi({ isim }) {
         </button>
       </div>
 
-      {/* Karakter kartları */}
       <div className="karakter-listesi">
         {karakterler.map((karakter) => (
           <Karakterler key={karakter.id} karakterim={karakter} begen={begen} />
