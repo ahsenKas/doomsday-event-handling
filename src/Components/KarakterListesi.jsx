@@ -1,7 +1,6 @@
 import Karakterler from "./Karakterler";
 import { useState } from "react";
 import "./KarakterListesi.css";
-
 import thor from "../assets/thor.jpg";
 import doom from "../assets/doom.jpg";
 import loki from "../assets/loki.jpg";
@@ -15,7 +14,7 @@ function KarakterListesi({ isim }) {
 
   // Daha önce kaydedilmiş beğenileri al
   const kayitliBegeniler =
-    JSON.parse(localStorage.getItem(kullaniciAnahtari)) || [];
+    JSON.parse(sessionStorage.getItem(kullaniciAnahtari)) || [];
 
   const [tema, setTema] = useState("light");
 
@@ -78,7 +77,7 @@ function KarakterListesi({ isim }) {
       .map((karakter) => karakter.id);
 
     // Beğenileri kullanıcının adına göre kaydet
-    localStorage.setItem(kullaniciAnahtari, JSON.stringify(begenilenler));
+    sessionStorage.setItem(kullaniciAnahtari, JSON.stringify(begenilenler));
   }
 
   return (
